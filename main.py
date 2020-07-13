@@ -33,8 +33,8 @@ print()
 
 #asientos de salida
 asientos = [[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]]
 
 #asientos de retorno
@@ -159,7 +159,7 @@ def ida_y_vuelta(destino):
   DNI = int(input("Numero de DNI: "))
   print()
 
-  #almacenamiento de pasajes 
+  #almacenamiento de pasajes de salida
   almacenamiento = "pasajeros.txt"
   archivo = open(almacenamiento, "w+")
   archivo.write("Salida: Lima   Destino: ")
@@ -171,6 +171,7 @@ def ida_y_vuelta(destino):
   archivo.write("N° Vuelo: 1   Asiento: ")
   archivo.write(f)
   archivo.write(str(k) + "\n")
+  archivo.write("Pasaje N°:  1" + "\n")
   archivo.write("Nombres:")
   archivo.write(nombre)
   archivo.write("   Apellidos:")
@@ -179,7 +180,7 @@ def ida_y_vuelta(destino):
   archivo.write(str(DNI) + "\n")
   archivo.close()
 
-  #alamcenamiento de regreso:
+  #alamcenamiento de pasajes de regreso:
   almacenamiento2 = "pasajeros2.txt"
   archivo = open(almacenamiento2, "w+")
   archivo.write("Salida: ")
@@ -192,6 +193,7 @@ def ida_y_vuelta(destino):
   archivo.write("N° Vuelo: 1   Asiento: ")
   archivo.write(f2)
   archivo.write(str(k2) + "\n")
+  archivo.write("Pasaje N°:  1" + "\n")
   archivo.write("Nombres:")
   archivo.write(nombre)
   archivo.write("   Apellidos:")
@@ -274,6 +276,7 @@ def solo_ida(destino):
   archivo.write("N° Vuelo: 1   Asiento: ")
   archivo.write(f)
   archivo.write(str(k) + "\n")
+  archivo.write("Pasaje N°:  1" + "\n")
   archivo.write("Nombres:")
   archivo.write(nombre)
   archivo.write("   Apellidos:")
@@ -313,11 +316,22 @@ n = 1
 while True:
   l=input("¿viaja con otra persona?: ")
   if l == 'si':
+     n = n + 1
      nombre2 = input("Nombres: ")
      apellido2 = input("Apellidos: ")
      DNI2 = int(input("Numero de DNI: "))
      correo2=input("Ingrese su correo electronico: ")
-     n = n + 1
+
+     inputFile = open("pasajeros.txt", "a")
+     inputFile.write("Pasaje N°: ")
+     inputFile.write(str(n) + "\n")
+     inputFile.write("Nombres:")
+     inputFile.write(nombre2)
+     inputFile.write("   Apellidos:")
+     inputFile.write(apellido2 + "\n")
+     inputFile.write("DNI: ")
+     inputFile.write(str(DNI2) + "\n")
+     inputFile.close()
   else:
     break 
 print("El total de boletos reservados es de:", n)
@@ -348,7 +362,7 @@ else:
 
 #realizar el pago
 print()
-H=input("¿Qusiera realizar el pago?")
+H=input("¿Qusiera realizar el pago? ")
 if H=='si':
   print("Usted ha pagado $",total)
   print()
