@@ -1,0 +1,6 @@
+Salida: tacna   Destino: Lima
+Fecha: 12 de junio  Hora: 11.52
+N° Vuelo: 1   Asiento: C3
+Nombres:NCJIENVIK   Apellidos:JNIDFIJENF
+DNI: 1456
+Correo: fjefn

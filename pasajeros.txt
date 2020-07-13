@@ -1,0 +1,5 @@
+Salida: Lima   Destino: trujillo
+Fecha: 23 de abril  Hora: 5.45
+N° Vuelo: 1   Asiento: B32
+Nombres:Denisse   Apellidos:Rojas
+DNI: 12345678
